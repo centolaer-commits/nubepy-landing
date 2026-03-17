@@ -205,33 +205,24 @@
                 font-size: 32px;
             }
             
-            /* -- AJUSTE CRÍTICO AQUI -- */
             .hero-image {
                 width: 100%;
-                /* Aumentei a altura para as imagens crescerem */
-                height: 400px; 
+                height: 380px; 
                 margin-top: 20px;
-                /* Removi flex centering para controle total absoluto */
             }
             .system-back {
-                /* Sistema ocupa 100% da largura no celular */
-                width: 100%;
+                width: 110%;
                 max-width: none;
-                /* Centralizado horizontalmente */
-                left: 0;
+                right: -5%;
                 top: 0;
-                right: auto;
             }
             .man-front {
-                /* Equipe ocupa 100% da largura */
-                width: 100%;
+                width: 120%;
                 max-width: none;
-                /* Puxei para CIMA (-10px) para sobrepor bem o sistema */
-                left: 0;
-                bottom: -10px; 
-                right: auto;
+                right: -10%;
+                bottom: auto; 
+                top: 70px; 
             }
-            /* -------------------------- */
             
             .cards-container {
                 flex-direction: column;
