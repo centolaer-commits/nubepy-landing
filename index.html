@@ -168,6 +168,95 @@
             background-color: #e9ecef;
         }
 
+        /* Pricing CSS */
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 40px auto 0 auto;
+            flex-wrap: wrap;
+        }
+        .price-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            flex: 1;
+            min-width: 280px;
+            text-align: left;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .price-card.popular {
+            border: 2px solid #28b89b;
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(40,184,155,0.2);
+            z-index: 2;
+        }
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #28b89b;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .price-card h3 {
+            font-size: 22px;
+            color: #0b2239;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .price-card p.desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+            min-height: 40px;
+        }
+        .price-card .price {
+            font-size: 30px;
+            font-weight: bold;
+            color: #06131c;
+            margin-bottom: 20px;
+        }
+        .price-card .price span {
+            font-size: 16px;
+            color: #666;
+            font-weight: normal;
+        }
+        .price-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+        .price-card ul li {
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: #444;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .price-card .btn {
+            text-align: center;
+            width: auto;
+            margin-top: auto;
+        }
+        .price-card:not(.popular) .btn {
+            background-color: #e9ecef;
+            color: #333;
+        }
+        .price-card:not(.popular) .btn:hover {
+            background-color: #d0dbe5;
+        }
+
         .footer { 
             background-color: #06131c; 
             color: white; 
@@ -228,6 +317,10 @@
                 flex-direction: column;
                 margin-top: -30px;
             }
+
+            .price-card.popular {
+                transform: scale(1);
+            }
         }
     </style>
 </head>
@@ -277,7 +370,49 @@
 
     <div id="precios" class="info-section gray-bg">
         <h2>Planes Transparentes y Simples</h2>
-        <p>Pronto mostraremos nuestros precios. Únete a la lista de espera hoy para asegurar un gran descuento cuando lancemos el sistema.</p>
+        <p>Elige el plan que mejor se adapte al tamaño de tu negocio.</p>
+        
+        <div class="pricing-container">
+            <div class="price-card">
+                <h3>Plan Inicial</h3>
+                <p class="desc">Perfecto para cumplir con la DNIT.</p>
+                <div class="price">120.000 <span>PYG/mes</span></div>
+                <ul>
+                    <li>✔️ Emisión rápida de e-Kuatia</li>
+                    <li>✔️ Punto de Venta (PDV) básico</li>
+                    <li>✔️ 1 Usuario</li>
+                    <li>✔️ Soporte por email</li>
+                </ul>
+                <a href="https://wa.me/595984553751?text=Hola,%20quiero%20más%20info%20del%20Plan%20Inicial" target="_blank" class="btn">Elegir Inicial</a>
+            </div>
+
+            <div class="price-card popular">
+                <div class="popular-badge">Más Popular</div>
+                <h3>Plan Crecimiento</h3>
+                <p class="desc">Control total para hacer crecer tu negocio.</p>
+                <div class="price">250.000 <span>PYG/mes</span></div>
+                <ul>
+                    <li>✔️ Todo del Plan Inicial</li>
+                    <li>✔️ Control de inventario</li>
+                    <li>✔️ Dashboard inteligente</li>
+                    <li>✔️ Soporte directo por WhatsApp</li>
+                </ul>
+                <a href="https://wa.me/595984553751?text=Hola,%20quiero%20más%20info%20del%20Plan%20Crecimiento" target="_blank" class="btn">Elegir Crecimiento</a>
+            </div>
+
+            <div class="price-card">
+                <h3>Plan VIP</h3>
+                <p class="desc">Para tiendas con alto volumen.</p>
+                <div class="price">450.000 <span>PYG/mes</span></div>
+                <ul>
+                    <li>✔️ Todo del Plan Crecimiento</li>
+                    <li>✔️ Usuarios ilimitados</li>
+                    <li>✔️ Reportes avanzados</li>
+                    <li>✔️ Soporte prioritario</li>
+                </ul>
+                <a href="https://wa.me/595984553751?text=Hola,%20quiero%20más%20info%20del%20Plan%20VIP" target="_blank" class="btn">Elegir VIP</a>
+            </div>
+        </div>
     </div>
 
     <div id="sifen" class="info-section">
@@ -287,8 +422,8 @@
 
     <div class="footer">
         <h2>Más que facturas: el control total de tus ganancias.</h2>
-        <p>Inscríbete a nuestra lista de espera exclusiva hoy. Te avisaremos el día del lançamento y te garantizamos un 50% de descuento en tus primeiros 3 meses. Sin compromisos, solo beneficios.</p>
-        <a href="https://wa.me/595984553751?text=Hola,%20quiero%20mi%20descuento%20para%20NubePY" target="_blank" class="btn">Quiero mi desconto por WhatsApp 💬</a>
+        <p>Inscríbete a nuestra lista de espera exclusiva hoy. Te avisaremos el día del lanzamiento y te garantizamos un 50% de descuento en tus primeros 3 meses. Sin compromisos, solo beneficios.</p>
+        <a href="https://wa.me/595984553751?text=Hola,%20quiero%20mi%20descuento%20para%20NubePY" target="_blank" class="btn">Quiero mi descuento por WhatsApp 💬</a>
     </div>
 
 </body>
