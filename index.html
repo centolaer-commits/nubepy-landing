@@ -37,7 +37,6 @@
             align-items: center; 
         }
         .navbar .logo img {
-            /* AJUSTE: Altura do logo aumentada de 40px para 150px */
             height: 150px; 
             width: auto;
         }
@@ -71,15 +70,12 @@
             line-height: 1.2; 
             color: #0b2239;
         }
-        
-        /* AJUSTE: NubePY no final da frase com as cores do logo */
         .hero-text h1 span.nube { 
-            color: #28b89b; /* Teal */
+            color: #28b89b; 
         }
         .hero-text h1 span.py { 
-            color: #0b2239; /* Grey do logo */
+            color: #0b2239; 
         }
-        
         .hero-text p { 
             font-size: 18px; 
             color: #4a5568; 
@@ -102,28 +98,36 @@
             transform: translateY(-2px);
         }
         
-        .hero-image { 
-            flex: 1; 
+        /* Nova Estrutura de Imagens Compostas e Alinhadas */
+        .hero-image {
+            flex: 1;
             position: relative;
-            min-height: 400px;
+            display: flex;
+            justify-content: flex-end; 
+            align-items: flex-end; 
+            min-height: 400px; 
         }
-        
+        .images-composition {
+            position: relative;
+            width: 100%; 
+            max-width: 650px; 
+            padding-top: 65%; /* Define a proporção de altura baseada na largura */
+        }
         .system-back {
-            width: 95%;
-            max-width: 600px;
             position: absolute;
-            right: 0px;
-            top: 20px;
+            width: 90%; 
+            height: auto;
+            right: 0;
+            top: 0;
             z-index: 1;
             filter: drop-shadow(0 15px 30px rgba(0,0,0,0.1));
         }
-
         .man-front {
-            width: 110%;
-            max-width: 700px;
             position: absolute;
-            right: -60px;
-            bottom: -50px;
+            width: 75%; 
+            height: auto;
+            right: -5%;
+            bottom: -15%; 
             z-index: 2;
             filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15));
         }
@@ -282,7 +286,6 @@
             border-top: 1px solid #e2e8f0;
         }
         .footer-logo {
-            /* AJUSTE: Altura do logo aumentada de 60px para 300px */
             height: 300px;
             width: auto;
             margin-bottom: 20px;
@@ -308,8 +311,7 @@
                 gap: 15px;
             }
             .navbar .logo img {
-                /* AJUSTE MOBILE: Altura do logo no mobile aumentada para 60px */
-                height: 60px !important; 
+                height: 80px !important; 
             }
             .hero-content {
                 flex-direction: column;
@@ -323,22 +325,21 @@
             }
             
             .hero-image {
-                width: 100%;
-                height: 320px; 
+                min-height: 350px; 
+                justify-content: center; 
                 margin-top: 20px;
             }
+            .images-composition {
+                max-width: 95%; 
+                padding-top: 75%; 
+            }
             .system-back {
-                width: 110%;
-                max-width: none;
-                right: -5%;
-                top: 0;
+                width: 100%; 
             }
             .man-front {
-                width: 120%;
-                max-width: none;
-                right: -10%;
-                bottom: auto; 
-                top: 70px; 
+                width: 90%; 
+                right: -5%; 
+                bottom: -10%;
             }
             
             .cards-container {
@@ -351,7 +352,6 @@
             }
             
             .footer-logo {
-                /* AJUSTE MOBILE: Altura do logo no rodapé reduzida no mobile */
                 height: 150px !important;
             }
         }
@@ -378,18 +378,90 @@
             </div>
             
             <div class="hero-image">
-                <img src="system.png" alt="NubePY System" class="system-back">
-                <img src="hero-clear.png" alt="NubePY Team" class="man-front">
+                <div class="images-composition">
+                    <img src="system.png" alt="NubePY System" class="system-back">
+                    <img src="hero-clear.png" alt="NubePY Team" class="man-front">
+                </div>
             </div>
 
         </div>
+    </div>
+
+    <div id="servicios" class="cards-container">
+        <div class="card">
+            <div class="card-icon">🛡️</div>
+            <h3>Facturación e-Kuatia sin estrés.</h3>
+            <p>Conectado directamente con la DNIT. Emite tus facturas con un solo clic, sin papeleos ni dolores de cabeza legales.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">📱</div>
+            <h3>Tu negocio en tu celular. Sin estrés, sin multas.</h3>
+            <p>Vende, registra y revisa tu stock desde tu computadora, tablet o celular. 100% en la nube, rápido y siempre sincronizado.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">📈</div>
+            <h3>Deja de adivinar, empieza a ganar.</h3>
+            <p>Nuestro Dashboard inteligente te dice qué productos se venden más, qué está estancado y cuáles te dejan el mayor margen de ganancia.</p>
+        </div>
+    </div>
+
+    <div id="precios" class="info-section gray-bg">
+        <h2>Planes Transparentes y Simples</h2>
+        <p>Elige el plan que mejor se adapte al tamaño de tu negocio.</p>
+        
+        <div class="pricing-container">
+            <div class="price-card">
+                <h3>Plan Inicial</h3>
+                <p class="desc">Perfecto para cumplir con la DNIT.</p>
+                <div class="price">120.000 <span>PYG/mes</span></div>
+                <ul>
+                    <li>✔️ Emisión rápida de e-Kuatia</li>
+                    <li>✔️ Punto de Venta (PDV) básico</li>
+                    <li>✔️ 1 Usuario</li>
+                    <li>✔️ Soporte por email</li>
+                </ul>
+                <a href="https://wa.me/595984553751?text=Hola,%20quiero%20más%20info%20del%20Plan%20Inicial" target="_blank" class="btn">Elegir Inicial</a>
+            </div>
+
+            <div class="price-card popular">
+                <div class="popular-badge">Más Popular</div>
+                <h3>Plan Crecimiento</h3>
+                <p class="desc">Control total para hacer crecer tu negocio.</p>
+                <div class="price">250.000 <span>PYG/mes</span></div>
+                <ul>
+                    <li>✔️ Todo del Plan Inicial</li>
+                    <li>✔️ Control de inventario</li>
+                    <li>✔️ Dashboard inteligente</li>
+                    <li>✔️ Soporte directo por WhatsApp</li>
+                </ul>
+                <a href="https://wa.me/595984553751?text=Hola,%20quiero%20más%20info%20del%20Plan%20Crecimiento" target="_blank" class="btn">Elegir Crecimiento</a>
+            </div>
+
+            <div class="price-card">
+                <h3>Plan VIP</h3>
+                <p class="desc">Para tiendas con alto volumen.</p>
+                <div class="price">450.000 <span>PYG/mes</span></div>
+                <ul>
+                    <li>✔️ Todo del Plan Crecimiento</li>
+                    <li>✔️ Usuarios ilimitados</li>
+                    <li>✔️ Reportes avanzados</li>
+                    <li>✔️ Soporte prioritario</li>
+                </ul>
+                <a href="https://wa.me/595984553751?text=Hola,%20quiero%20más%20info%20del%20Plan%20VIP" target="_blank" class="btn">Elegir VIP</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="sifen" class="info-section">
+        <h2>100% Integrado con SIFEN y la DNIT</h2>
+        <p>Nuestro sistema cumple con todas las reglas de facturación electrónica en Paraguay. Tu negocio estará seguro, moderno y listo para vender sin problemas legales.</p>
     </div>
 
     <div class="footer">
         <img src="logo_icon.svg" alt="NubePY Icon" class="footer-logo">
         <h2>Más que facturas: el control total de tus ganancias.</h2>
         <p>Inscríbete a nuestra lista de espera exclusiva hoy. Te avisaremos el día del lanzamiento y te garantizamos un 50% de descuento en tus primeros 3 meses. Sin compromisos, solo beneficios.</p>
-        <a href="https://wa.me/595984553751?text=Hola,%20quiero%20mi%20descuento%20para%20NubePY" target="_blank" class="btn">Quiero mi desconto por WhatsApp 💬</a>
+        <a href="https://wa.me/595984553751?text=Hola,%20quiero%20mi%20descuento%20para%20NubePY" target="_blank" class="btn">Quiero mi descuento por WhatsApp 💬</a>
     </div>
 
 </body>
