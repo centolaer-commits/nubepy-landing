@@ -13,18 +13,17 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             background-color: #f4f6f9; 
             color: #333; 
-            /* Espaço para a navbar fixa no desktop. Será ajustado no mobile via Media Query */
             padding-top: 130px; 
         }
         
-        /* --- DESIGN DO CABEÇALHO (PADRÃO DESKTOP FIXO) --- */
+        /* Desktop Navbar */
         .navbar-container {
-            position: fixed; /* Fixo no desktop */
+            position: fixed; 
             top: 0;
             left: 0;
             width: 100%;
-            background-color: #F8FAFC; /* Tom Cinza-Gelo para contraste */
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05); /* Leve sombra */
+            background-color: #F8FAFC; 
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05); 
             z-index: 1000;
         }
 
@@ -38,7 +37,7 @@
         }
 
         .navbar .logo img {
-            height: 100px; /* Altura do logo no desktop */
+            height: 100px; 
             width: auto;
             transition: 0.3s;
         }
@@ -57,7 +56,6 @@
         }
         .nav-links a:hover { color: #28b89b; }
 
-        /* Estilo do Botão Demo na Navbar */
         .btn-demo {
             border: 2px solid #0b2239;
             color: #0b2239 !important;
@@ -119,7 +117,7 @@
             transform: translateY(-2px);
         }
 
-        /* Imagens Compostas e Alinhadas */
+        /* Hero Images */
         .hero-image {
             flex: 1.2;
             display: flex;
@@ -191,28 +189,46 @@
         .footer { background-color: #f8f9fa; color: #0b2239; text-align: center; padding: 80px 20px; border-top: 1px solid #e2e8f0; margin-top: 60px; }
         .footer-logo { height: 250px; width: auto; margin-bottom: 30px; }
 
-        /* --- CORREÇÃO CRÍTICA DO MOBILE (FIX DO CABEÇALHO TRAVADO) --- */
+        /* --- MOBILE REVISION --- */
         @media (max-width: 768px) {
-            /* 1. Removemos o padding exagerado do topo do corpo */
             body { padding-top: 0; } 
 
-            /* 2. Desativamos o 'fixed' no mobile. Agora ele rola com a página. */
             .navbar-container {
-                position: relative; /* Deixa de ser fixo, rola junto */
-                box-shadow: none; /* Opcional: remover sombra quando não fixo */
-                border-bottom: 1px solid #e2e8f0; /* Adiciona uma borda leve no lugar */
+                position: relative; 
+                box-shadow: none; 
+                border-bottom: 1px solid #e2e8f0; 
             }
 
-            /* 3. Ajustes de layout da navbar mobile */
-            .navbar { padding: 20px; flex-direction: column; gap: 15px; text-align: center; }
-            .navbar .logo img { height: 70px !important; } /* Logo um pouco menor no mobile */
+            .navbar { padding: 20px; flex-direction: column; gap: 15px; align-items: center; }
+            .navbar .logo img { height: 65px !important; } 
             
-            /* 4. Organização vertical dos links e botões */
-            .nav-links { flex-direction: column; gap: 12px; width: 100%; padding-bottom: 15px; }
-            .nav-links a { font-size: 14px; width: 100%; display: block; padding: 8px 0; }
-            .btn-demo { border-width: 1px; padding: 10px 20px; display: inline-block; width: auto; }
+            /* Horizontal links below logo */
+            .nav-links { 
+                flex-direction: row; 
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px; 
+                width: 100%; 
+                padding-bottom: 10px; 
+            }
+            .nav-links a:not(.btn-demo) { 
+                font-size: 15px; 
+                width: auto; 
+                display: inline-block; 
+                padding: 5px; 
+            }
             
-            /* Resto dos ajustes mobile mantidos */
+            /* Button below the horizontal links */
+            .btn-demo { 
+                border-width: 1px; 
+                padding: 12px 20px; 
+                display: block; 
+                width: 90%; 
+                margin-top: 5px;
+                text-align: center;
+                box-sizing: border-box;
+            }
+            
             .hero { padding: 40px 20px 60px 20px; border-radius: 0 0 30px 30px; }
             .hero-content { flex-direction: column; text-align: center; gap: 30px; }
             .hero-text h1 { font-size: 34px; }
