@@ -13,18 +13,19 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             background-color: #f4f6f9; 
             color: #333; 
-            padding-top: 120px; /* Espaço para a navbar fixa não cortar o conteúdo */
+            /* Espaço para a navbar fixa no desktop. Será ajustado no mobile via Media Query */
+            padding-top: 130px; 
         }
         
-        /* --- DESIGN ATUALIZADO DO CABEÇALHO --- */
+        /* --- DESIGN DO CABEÇALHO (PADRÃO DESKTOP FIXO) --- */
         .navbar-container {
-            position: fixed;
+            position: fixed; /* Fixo no desktop */
             top: 0;
             left: 0;
             width: 100%;
             background-color: #F8FAFC; /* Tom Cinza-Gelo para contraste */
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05); /* Leve sombra para profundidade */
-            z-index: 1000; /* Garante que fique em cima de tudo */
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05); /* Leve sombra */
+            z-index: 1000;
         }
 
         .navbar { 
@@ -33,15 +34,14 @@
             align-items: center; 
             max-width: 1200px; 
             margin: 0 auto; 
-            padding: 10px 50px; /* Reduzi o padding vertical para o logo de 150px caber melhor */
+            padding: 15px 50px; 
         }
 
         .navbar .logo img {
-            height: 100px; /* Ajuste fino da altura do logo no desktop */
+            height: 100px; /* Altura do logo no desktop */
             width: auto;
             transition: 0.3s;
         }
-        .navbar .logo img:hover { transform: scale(1.02); }
 
         .nav-links { 
             display: flex; 
@@ -57,28 +57,26 @@
         }
         .nav-links a:hover { color: #28b89b; }
 
-        /* --- ESTILO DO NOVO BOTÃO DEMO --- */
+        /* Estilo do Botão Demo na Navbar */
         .btn-demo {
             border: 2px solid #0b2239;
             color: #0b2239 !important;
             padding: 8px 18px;
             border-radius: 20px;
             font-weight: bold !important;
-            transition: 0.3s;
         }
         .btn-demo:hover {
             background-color: #0b2239;
             color: white !important;
-            transform: translateY(-1px);
         }
         
-        /* Light Mode Hero Section */
+        /* Hero Section */
         .hero { 
             background-color: #ffffff; 
             color: #0b2239; 
             padding: 50px 50px 100px 50px; 
             overflow: hidden;
-            border-radius: 0 0 50px 50px; /* Borda arredondada no fundo para estilo */
+            border-radius: 0 0 50px 50px; 
         }
         
         .hero-content { 
@@ -119,7 +117,6 @@
         .btn-main:hover {
             background-color: #1f947c;
             transform: translateY(-2px);
-            box-shadow: 0 8px 15px rgba(40, 184, 155, 0.4);
         }
 
         /* Imagens Compostas e Alinhadas */
@@ -172,46 +169,51 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.04); 
             flex: 1; 
             border: 1px solid #e2e8f0;
-            transition: 0.3s;
         }
-        .card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.06); }
         .card-icon { font-size: 45px; margin-bottom: 20px; display: block; }
         .card h3 { font-size: 20px; color: #0b2239; margin-bottom: 12px; margin-top: 0; }
-        .card p { font-size: 15px; color: #4a5568; line-height: 1.6; margin: 0; }
+        .card p { font-size: 15px; color: #4a5568; line-height: 1.6; }
 
         .info-section { padding: 100px 20px; text-align: center; max-width: 1200px; margin: 0 auto; }
         .info-section h2 { font-size: 36px; color: #0b2239; margin-bottom: 25px; }
-        .info-section p { font-size: 18px; color: #4a5568; max-width: 700px; margin: 0 auto 50px auto; line-height: 1.6; }
         .gray-bg { background-color: #f8f9fa; border-radius: 50px; }
 
         /* Pricing */
-        .pricing-container { display: flex; justify-content: center; gap: 25px; max-width: 1050px; margin: 40px auto 0 auto; flex-wrap: wrap; align-items: stretch; }
-        .price-card { background: white; padding: 45px 35px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.04); flex: 1; min-width: 300px; border: 1px solid #e2e8f0; display: flex; flex-direction: column; transition: 0.3s; }
-        .price-card:hover { box-shadow: 0 12px 30px rgba(0,0,0,0.06); }
+        .pricing-container { display: flex; justify-content: center; gap: 25px; max-width: 1050px; margin: 40px auto 0 auto; flex-wrap: wrap; }
+        .price-card { background: white; padding: 45px 35px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.04); flex: 1; min-width: 300px; border: 1px solid #e2e8f0; display: flex; flex-direction: column; }
         .price-card.popular { border: 2px solid #28b89b; transform: scale(1.03); z-index: 2; position: relative; }
         .price-card .plan-name { font-size: 24px; color: #0b2239; font-weight: bold; margin: 0 0 10px 0; }
         .price-card .price { font-size: 34px; font-weight: bold; color: #06131c; margin: 25px 0; }
-        .price-card .price span { font-size: 16px; color: #666; font-weight: normal; }
+        .price-card .price span { font-size: 16px; color: #666; }
         .price-card ul { list-style: none; padding: 0; margin: 0 0 40px 0; flex-grow: 1; text-align: left; }
         .price-card ul li { margin-bottom: 12px; display: flex; align-items: center; gap: 12px; font-size: 15px; color: #444; }
-        .price-card .btn-price { text-align: center; display: block; width: 100%; box-sizing: border-box; }
 
         .footer { background-color: #f8f9fa; color: #0b2239; text-align: center; padding: 80px 20px; border-top: 1px solid #e2e8f0; margin-top: 60px; }
         .footer-logo { height: 250px; width: auto; margin-bottom: 30px; }
-        .footer h2 { font-size: 30px; margin-bottom: 20px; }
-        .footer p { margin-bottom: 40px; color: #4a5568; max-width: 600px; margin: 0 auto 40px auto; line-height: 1.6; font-size: 16px; }
 
-        /* --- MOBILE ADJUSTMENTS (FIX DO CABEÇALHO) --- */
+        /* --- CORREÇÃO CRÍTICA DO MOBILE (FIX DO CABEÇALHO TRAVADO) --- */
         @media (max-width: 768px) {
-            body { padding-top: 90px; } /* Ajuste do espaço da navbar mobile */
-            .navbar { padding: 10px 20px; flex-direction: column; gap: 10px; text-align: center; }
-            .navbar .logo img { height: 60px !important; }
-            .nav-links { flex-direction: column; gap: 10px; width: 100%; padding-bottom: 10px; }
-            .nav-links a { font-size: 14px; width: 100%; display: block; padding: 5px 0; }
+            /* 1. Removemos o padding exagerado do topo do corpo */
+            body { padding-top: 0; } 
+
+            /* 2. Desativamos o 'fixed' no mobile. Agora ele rola com a página. */
+            .navbar-container {
+                position: relative; /* Deixa de ser fixo, rola junto */
+                box-shadow: none; /* Opcional: remover sombra quando não fixo */
+                border-bottom: 1px solid #e2e8f0; /* Adiciona uma borda leve no lugar */
+            }
+
+            /* 3. Ajustes de layout da navbar mobile */
+            .navbar { padding: 20px; flex-direction: column; gap: 15px; text-align: center; }
+            .navbar .logo img { height: 70px !important; } /* Logo um pouco menor no mobile */
             
-            .btn-demo { border-width: 1px; padding: 6px 15px; display: inline-block; width: auto; }
+            /* 4. Organização vertical dos links e botões */
+            .nav-links { flex-direction: column; gap: 12px; width: 100%; padding-bottom: 15px; }
+            .nav-links a { font-size: 14px; width: 100%; display: block; padding: 8px 0; }
+            .btn-demo { border-width: 1px; padding: 10px 20px; display: inline-block; width: auto; }
             
-            .hero { padding: 40px 20px 60px 20px; }
+            /* Resto dos ajustes mobile mantidos */
+            .hero { padding: 40px 20px 60px 20px; border-radius: 0 0 30px 30px; }
             .hero-content { flex-direction: column; text-align: center; gap: 30px; }
             .hero-text h1 { font-size: 34px; }
             .hero-text p { font-size: 17px; margin-bottom: 30px; }
@@ -245,7 +247,7 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1>Vende más rápido. Del papeleo se encarga <span class="nube">Nube</span><span class="py">PY.</span></h1>
-                <p>El sistema PDV hecho para Paraguay. Emite facturas electrónicas (SIFEN) en segundos, controla tu inventario y descubre tus ganancias reales desde tu celular.</p>
+                <p>El sistema PDV hecho para Paraguay. Emite facturas electrónicas (SIFEN) en segundos, controla tu inventario e descubre tus ganancias reales.</p>
                 <a href="https://wa.me/595984553751?text=Hola, quiero unirme a la lista VIP de NubePY" target="_blank" class="btn-main">Únete a la Lista VIP (Asegura 50% de descuento) 💬</a>
             </div>
             
@@ -262,7 +264,7 @@
         <div class="card">
             <span class="card-icon">🛡️</span>
             <h3>Facturación e-Kuatia sin estrés.</h3>
-            <p>Conectado directamente con la DNIT. Emite tus facturas con un solo clic, sin papeleos ni dolores de cabeza legales.</p>
+            <p>Conectado directamente con la DNIT. Emite tus facturas con un solo clic, sin papeleos ni multas legales.</p>
         </div>
         <div class="card">
             <span class="card-icon">📱</span>
@@ -283,48 +285,28 @@
         <div class="pricing-container">
             <div class="price-card">
                 <p class="plan-name">Plan Inicial</p>
-                <p class="desc">Perfecto para cumplir con la DNIT.</p>
                 <div class="price">120.000 <span>PYG/mes</span></div>
-                <ul>
-                    <li>✔️ Emisión rápida de e-Kuatia</li>
-                    <li>✔️ Punto de Venta (PDV) básico</li>
-                    <li>✔️ 1 Usuario</li>
-                    <li>✔️ Soporte por email</li>
-                </ul>
-                <a href="https://wa.me/595984553751?text=Hola, quiero más info del Plan Inicial" target="_blank" class="btn-main btn-price">Elegir Inicial</a>
+                <ul><li>✔️ Emisión e-Kuatia</li><li>✔️ PDV Básico</li><li>✔️ 1 Usuario</li><li>✔️ Soporte por email</li></ul>
+                <a href="https://wa.me/595984553751?text=Hola, Plan Inicial" target="_blank" class="btn-main btn-price">Elegir Inicial</a>
             </div>
-
             <div class="price-card popular">
                 <p class="plan-name">Plan Crecimiento</p>
-                <p class="desc">Control total para crecer.</p>
                 <div class="price">250.000 <span>PYG/mes</span></div>
-                <ul>
-                    <li>✔️ Todo del Plan Inicial</li>
-                    <li>✔️ Control de inventario</li>
-                    <li>✔️ Dashboard inteligente</li>
-                    <li>✔️ Soporte por WhatsApp</li>
-                </ul>
-                <a href="https://wa.me/595984553751?text=Hola, quiero más info del Plan Crecimiento" target="_blank" class="btn-main btn-price">Elegir Crecimiento</a>
+                <ul><li>✔️ Todo del Inicial</li><li>✔️ Inventario</li><li>✔️ Dashboard</li><li>✔️ Soporte por WhatsApp</li></ul>
+                <a href="https://wa.me/595984553751?text=Hola, Plan Crecimiento" target="_blank" class="btn-main btn-price">Elegir Crecimiento</a>
             </div>
-
             <div class="price-card">
                 <p class="plan-name">Plan VIP</p>
-                <p class="desc">Para tiendas de alto volumen.</p>
                 <div class="price">450.000 <span>PYG/mes</span></div>
-                <ul>
-                    <li>✔️ Todo del Plan Crecimiento</li>
-                    <li>✔️ Usuarios ilimitados</li>
-                    <li>✔️ Reportes avanzados</li>
-                    <li>✔️ Soporte prioritario</li>
-                </ul>
-                <a href="https://wa.me/595984553751?text=Hola, quiero más info del Plan VIP" target="_blank" class="btn-main btn-price">Elegir VIP</a>
+                <ul><li>✔️ Todo do Crecimiento</li><li>✔️ Usuarios Ilimitados</li><li>✔️ Reportes Avanzados</li><li>✔️ Soporte Prioritario</li></ul>
+                <a href="https://wa.me/595984553751?text=Hola, Plan VIP" target="_blank" class="btn-main btn-price">Elegir VIP</a>
             </div>
         </div>
     </div>
 
     <div id="sifen" class="info-section">
         <h2>100% Integrado con SIFEN y la DNIT</h2>
-        <p>Nuestro sistema cumple con todas las reglas de facturación electrónica en Paraguay. Tu negocio estará seguro, moderno y listo para vender sin problemas legales.</p>
+        <p>Nuestro sistema cumple con todas las reglas de facturación electrónica en Paraguay. Tu negocio estará seguro, moderno e listo para vender.</p>
     </div>
 
     <div class="footer">
