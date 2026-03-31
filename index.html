@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NubePY | SIFEN - Facturación Electrónica Paraguay</title>
+    <link rel="icon" type="image/svg+xml" href="logo_icon.svg">
+    <style>
+        html { scroll-behavior: smooth; }
+
+        body { 
+            margin: 0; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #f4f6f9; 
+            color: #333; 
+            padding-top: 130px; 
+        }
+        
+        /* Desktop Navbar */
+        .navbar-container {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #F8FAFC; 
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05); 
+            z-index: 1000;
+        }
+
+        .navbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 15px 50px; 
+        }
+
+        .navbar .logo img {
+            height: 100px; 
+            width: auto;
+            transition: 0.3s;
+        }
+
+        .nav-links { 
+            display: flex; 
+            gap: 20px; 
+            align-items: center; 
+        }
+        .nav-links a { 
+            color: #0b2239; 
+            font-weight: 600;
+            text-decoration: none; 
+            transition: 0.3s;
+            font-size: 15px;
+        }
+        .nav-links a:hover { color: #28b89b; }
+
+        .btn-demo {
+            border: 2px solid #0b2239;
+            color: #0b2239 !important;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: bold !important;
+        }
+        .btn-demo:hover {
+            background-color: #0b2239;
+            color: white !important;
+        }
+        
+        /* Hero Section */
+        .hero { 
+            background-color: #ffffff; 
+            color: #0b2239; 
+            padding: 50px 50px 100px 50px; 
+            overflow: hidden;
+            border-radius: 0 0 50px 50px; 
+        }
+        
+        .hero-content { 
+            display: flex; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            align-items: center; 
+            gap: 60px; 
+        }
+        .hero-text { flex: 1; }
+        .hero-text h1 { 
+            font-size: 48px; 
+            margin-bottom: 20px; 
+            line-height: 1.1; 
+            color: #0b2239;
+        }
+        .hero-text h1 span.nube { color: #28b89b; }
+        .hero-text h1 span.py { color: #0b2239; }
+
+        .hero-text p { 
+            font-size: 19px; 
+            color: #4a5568; 
+            margin-bottom: 40px; 
+            line-height: 1.6; 
+        }
+        .btn-main { 
+            background-color: #28b89b; 
+            color: white; 
+            padding: 18px 35px; 
+            text-decoration: none; 
+            border-radius: 35px; 
+            font-weight: bold; 
+            display: inline-block; 
+            transition: 0.3s;
+            box-shadow: 0 6px 12px rgba(40, 184, 155, 0.3);
+            font-size: 16px;
+        }
+        .btn-main:hover {
+            background-color: #1f947c;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Images */
+        .hero-image {
+            flex: 1.2;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            min-height: 500px;
+        }
+        .images-composition {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+        }
+        .system-back {
+            display: block;
+            width: 100%;
+            height: auto;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.08));
+        }
+        .man-front {
+            display: block;
+            width: 75%;
+            height: auto;
+            position: absolute;
+            right: -8%;
+            bottom: -25%;
+            z-index: 2;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.12));
+        }
+
+        /* Cards Section */
+        .cards-container { 
+            display: flex; 
+            justify-content: center; 
+            gap: 25px; 
+            max-width: 1200px; 
+            margin: -70px auto 60px auto; 
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+        .card { 
+            background: white; 
+            padding: 35px; 
+            border-radius: 18px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.04); 
+            flex: 1; 
+            border: 1px solid #e2e8f0;
+        }
+        .card-icon { font-size: 45px; margin-bottom: 20px; display: block; }
+        .card h3 { font-size: 20px; color: #0b2239; margin-bottom: 12px; margin-top: 0; }
+        .card p { font-size: 15px; color: #4a5568; line-height: 1.6; }
+
+        .info-section { padding: 100px 20px; text-align: center; max-width: 1200px; margin: 0 auto; }
+        .info-section h2 { font-size: 36px; color: #0b2239; margin-bottom: 25px; }
+        .gray-bg { background-color: #f8f9fa; border-radius: 50px; }
+
+        /* Pricing */
+        .pricing-container { display: flex; justify-content: center; gap: 25px; max-width: 1050px; margin: 40px auto 0 auto; flex-wrap: wrap; }
+        .price-card { background: white; padding: 45px 35px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.04); flex: 1; min-width: 300px; border: 1px solid #e2e8f0; display: flex; flex-direction: column; }
+        .price-card.popular { border: 2px solid #28b89b; transform: scale(1.03); z-index: 2; position: relative; }
+        .price-card .plan-name { font-size: 24px; color: #0b2239; font-weight: bold; margin: 0 0 10px 0; }
+        .price-card .price { font-size: 34px; font-weight: bold; color: #06131c; margin: 25px 0; }
+        .price-card .price span { font-size: 16px; color: #666; }
+        .price-card ul { list-style: none; padding: 0; margin: 0 0 40px 0; flex-grow: 1; text-align: left; }
+        .price-card ul li { margin-bottom: 12px; display: flex; align-items: center; gap: 12px; font-size: 15px; color: #444; }
+
+        .footer { background-color: #f8f9fa; color: #0b2239; text-align: center; padding: 80px 20px; border-top: 1px solid #e2e8f0; margin-top: 60px; }
+        .footer-logo { height: 250px; width: auto; margin-bottom: 30px; }
+
+        /* --- MOBILE REVISION --- */
+        @media (max-width: 768px) {
+            body { padding-top: 0; } 
+
+            .navbar-container {
+                position: relative; 
+                box-shadow: none; 
+                border-bottom: 1px solid #e2e8f0; 
+            }
+
+            .navbar { padding: 20px; flex-direction: column; gap: 15px; align-items: center; }
+            .navbar .logo img { height: 65px !important; } 
+            
+            /* Horizontal links below logo */
+            .nav-links { 
+                flex-direction: row; 
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px; 
+                width: 100%; 
+                padding-bottom: 10px; 
+            }
+            .nav-links a:not(.btn-demo) { 
+                font-size: 15px; 
+                width: auto; 
+                display: inline-block; 
+                padding: 5px; 
+            }
+            
+            /* Button below the horizontal links */
+            .btn-demo { 
+                border-width: 1px; 
+                padding: 12px 20px; 
+                display: block; 
+                width: 90%; 
+                margin-top: 5px;
+                text-align: center;
+                box-sizing: border-box;
+            }
+            
+            .hero { padding: 40px 20px 60px 20px; border-radius: 0 0 30px 30px; }
+            .hero-content { flex-direction: column; text-align: center; gap: 30px; }
+            .hero-text h1 { font-size: 34px; }
+            .hero-text p { font-size: 17px; margin-bottom: 30px; }
+            .btn-main { padding: 15px 30px; font-size: 15px; }
+
+            .hero-image { min-height: auto; margin-top: 30px; justify-content: center; }
+            .images-composition { max-width: 85%; margin-bottom: 30px; }
+            .man-front { bottom: -18%; right: -5%; }
+            
+            .cards-container { flex-direction: column; margin-top: 30px; gap: 15px; }
+            .price-card.popular { transform: scale(1); }
+            .footer-logo { height: 120px !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar-container">
+        <div class="navbar">
+            <div class="logo"><img src="logo_main.svg" alt="NubePY Logo"></div>
+            <div class="nav-links">
+                <a href="#servicios">Servicios</a>
+                <a href="#precios">Precios</a>
+                <a href="#sifen">SIFEN</a>
+                <a href="https://app.nubepy.com/demo" target="_blank" class="btn-demo">👀 Ver Modelo de Ejemplo</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Vende más rápido. Del papeleo se encarga <span class="nube">Nube</span><span class="py">PY.</span></h1>
+                <p>El sistema PDV hecho para Paraguay. Emite facturas electrónicas (SIFEN) en segundos, controla tu inventario e descubre tus ganancias reales.</p>
+                <a href="https://wa.me/595984553751?text=Hola, quiero unirme a la lista VIP de NubePY" target="_blank" class="btn-main">Únete a la Lista VIP (Asegura 50% de descuento) 💬</a>
+            </div>
+            
+            <div class="hero-image">
+                <div class="images-composition">
+                    <img src="system.png" alt="NubePY System" class="system-back">
+                    <img src="hero-clear.png" alt="NubePY Team" class="man-front">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="servicios" class="cards-container">
+        <div class="card">
+            <span class="card-icon">🛡️</span>
+            <h3>Facturación e-Kuatia sin estrés.</h3>
+            <p>Conectado directamente con la DNIT. Emite tus facturas con un solo clic, sin papeleos ni multas legales.</p>
+        </div>
+        <div class="card">
+            <span class="card-icon">📱</span>
+            <h3>Tu negocio en tu celular.</h3>
+            <p>Vende, registra y revisa tu stock desde cualquier lugar. 100% en la nube, rápido y siempre sincronizado.</p>
+        </div>
+        <div class="card">
+            <span class="card-icon">📈</span>
+            <h3>Deja de adivinar, empieza a ganar.</h3>
+            <p>Nuestro Dashboard inteligente te dice qué productos se venden más y cuál es tu lucro real al final del día.</p>
+        </div>
+    </div>
+
+    <div id="precios" class="info-section gray-bg">
+        <h2>Planes Transparentes y Simples</h2>
+        <p>Elige el plan que mejor se adapte al tamaño de tu negocio.</p>
+        
+        <div class="pricing-container">
+            <div class="price-card">
+                <p class="plan-name">Plan Inicial</p>
+                <div class="price">120.000 <span>PYG/mes</span></div>
+                <ul><li>✔️ Emisión e-Kuatia</li><li>✔️ PDV Básico</li><li>✔️ 1 Usuario</li><li>✔️ Soporte por email</li></ul>
+                <a href="https://wa.me/595984553751?text=Hola, Plan Inicial" target="_blank" class="btn-main btn-price">Elegir Inicial</a>
+            </div>
+            <div class="price-card popular">
+                <p class="plan-name">Plan Crecimiento</p>
+                <div class="price">250.000 <span>PYG/mes</span></div>
+                <ul><li>✔️ Todo del Inicial</li><li>✔️ Inventario</li><li>✔️ Dashboard</li><li>✔️ Soporte por WhatsApp</li></ul>
+                <a href="https://wa.me/595984553751?text=Hola, Plan Crecimiento" target="_blank" class="btn-main btn-price">Elegir Crecimiento</a>
+            </div>
+            <div class="price-card">
+                <p class="plan-name">Plan VIP</p>
+                <div class="price">450.000 <span>PYG/mes</span></div>
+                <ul><li>✔️ Todo do Crecimiento</li><li>✔️ Usuarios Ilimitados</li><li>✔️ Reportes Avanzados</li><li>✔️ Soporte Prioritario</li></ul>
+                <a href="https://wa.me/595984553751?text=Hola, Plan VIP" target="_blank" class="btn-main btn-price">Elegir VIP</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="sifen" class="info-section">
+        <h2>100% Integrado con SIFEN y la DNIT</h2>
+        <p>Nuestro sistema cumple con todas las reglas de facturación electrónica en Paraguay. Tu negocio estará seguro, moderno e listo para vender.</p>
+    </div>
+
+    <div class="footer">
+        <img src="logo_icon.svg" alt="NubePY Icon" class="footer-logo">
+        <h2>Más que facturas: el control total de tus ganancias.</h2>
+        <p>Asegura um 50% de descuento en tus primeros 3 meses inscibiéndote a nuestra Lista VIP por WhatsApp.</p>
+        <a href="https://wa.me/595984553751?text=Hola, quero mi descuento VIP" target="_blank" class="btn-main">Quiero mi descuento VIP💬</a>
+    </div>
+
+</body>
+</html>

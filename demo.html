@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NubePY Demo | Prueba Gratis el Sistema de Facturación</title>
+    <link rel="icon" type="image/svg+xml" href="logo_icon.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f4f6f9 0%, #e8edf5 100%);
+            color: #0b2239;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(11, 34, 57, 0.1);
+            overflow: hidden;
+        }
+
+        .demo-header {
+            background: linear-gradient(90deg, #0b2239 0%, #1a365d 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .demo-header::before {
+            content: "DEMO";
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #28b89b;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .demo-logo {
+            height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .demo-header h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .demo-header h1 span {
+            color: #28b89b;
+        }
+
+        .demo-header p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .demo-content {
+            padding: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .demo-content {
+                grid-template-columns: 1fr;
+                padding: 30px;
+            }
+        }
+
+        .demo-instructions {
+            background: #f8fafc;
+            padding: 35px;
+            border-radius: 18px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .demo-instructions h2 {
+            color: #0b2239;
+            margin-bottom: 25px;
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .demo-instructions h2::before {
+            content: "📋";
+            font-size: 24px;
+        }
+
+        .instructions-list {
+            list-style: none;
+        }
+
+        .instructions-list li {
+            margin-bottom: 25px;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .instructions-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 28px;
+            height: 28px;
+            background: #28b89b;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .instructions-list li:nth-child(1)::before { content: "1"; }
+        .instructions-list li:nth-child(2)::before { content: "2"; }
+        .instructions-list li:nth-child(3)::before { content: "3"; }
+        .instructions-list li:nth-child(4)::before { content: "4"; }
+
+        .instruction-title {
+            font-weight: bold;
+            color: #0b2239;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .instruction-desc {
+            color: #4a5568;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .demo-box {
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            border: 2px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .demo-box h2 {
+            color: #0b2239;
+            margin-bottom: 25px;
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .demo-box h2::before {
+            content: "🚀";
+            font-size: 24px;
+        }
+
+        .demo-features {
+            background: #f0f9ff;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .demo-features h3 {
+            color: #0b2239;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        @media (max-width: 480px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #4a5568;
+        }
+
+        .feature-item::before {
+            content: "✅";
+            font-size: 16px;
+        }
+
+        .demo-limits {
+            background: #fff7ed;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .demo-limits h3 {
+            color: #92400e;
+            margin-bottom: 10px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .demo-limits h3::before {
+            content: "⏱️";
+        }
+
+        .limits-list {
+            list-style: none;
+            font-size: 14px;
+            color: #92400e;
+        }
+
+        .limits-list li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .limits-list li::before {
+            content: "•";
+            font-weight: bold;
+        }
+
+        .demo-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn-demo-start {
+            background: linear-gradient(90deg, #28b89b 0%, #1f947c 100%);
+            color: white;
+            border: none;
+            padding: 20px 30px;
+            border-radius: 16px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: 0 8px 20px rgba(40, 184, 155, 0.3);
+        }
+
+        .btn-demo-start:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(40, 184, 155, 0.4);
+        }
+
+        .btn-demo-start:active {
+            transform: translateY(0);
+        }
+
+        .btn-demo-start::before {
+            content: "🎮";
+            font-size: 20px;
+        }
+
+        .btn-demo-secondary {
+            background: white;
+            color: #0b2239;
+            border: 2px solid #0b2239;
+            padding: 16px 30px;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-demo-secondary:hover {
+            background: #0b2239;
+            color: white;
+        }
+
+        .btn-demo-secondary::before {
+            content: "📞";
+        }
+
+        .demo-status {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px dashed #cbd5e0;
+            display: none;
+        }
+
+        .demo-status.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .status-loading {
+            text-align: center;
+            color: #4a5568;
+        }
+
+        .status-loading::after {
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #e2e8f0;
+            border-top-color: #28b89b;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .status-success {
+            text-align: center;
+        }
+
+        .status-success h3 {
+            color: #28b89b;
+            margin-bottom: 15px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .status-success h3::before {
+            content: "✅";
+        }
+
+        .credentials-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .credential-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .credential-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .credential-label {
+            font-weight: bold;
+            color: #0b2239;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .credential-value {
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 15px;
+            color: #2d3748;
+            word-break: break-all;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copy-btn {
+            background: #28b89b;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: #1f947c;
+        }
+
+        .btn-login-demo {
+            background: #0b2239;
+            color: white;
+            border: none;
+            padding: 16px 30px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-login-demo:hover {
+            background: #1a365d;
+            transform: translateY(-2px);
+        }
+
+        .btn-login-demo::before {
+            content: "🔐";
+        }
+
+        .demo-footer {
+            background: #f8fafc;
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .demo-footer h3 {
+            color: #0b2239;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .demo-footer p {
+            color: #4a5568;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #4a5568;
+            font-size: 15px;
+        }
+
+        .contact-item a {
+            color: #28b89b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .demo-header {
+                padding: 30px 20px;
+            }
+
+            .demo-header h1 {
+                font-size: 32px;
+            }
+
+            .demo-content {
+                padding: 20px;
+            }
+
+            .demo-instructions, .demo-box {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .demo-header h1 {
+                font-size: 28px;
+            }
+
+            .demo-header p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-header">
+            <img src="logo_main.svg" alt="NubePY Logo" class="demo-logo">
+            <h1>Prueba <span>NubePY</span> Gratis</h1>
+            <p>Experimenta nuestro sistema completo de PDV y facturación electrónica. Sin registro, sin compromiso.</p>
+        </div>
+
+        <div class="demo-content">
+            <div class="demo-instructions">
+                <h2>Cómo Funciona la Demo</h2>
+                <ul class="instructions-list">
+                    <li>
+                        <div class="instruction-title">Inicia Sesión Demo</div>
+                        <div class="instruction-desc">Haz clic en "Iniciar Demo" para crear una sesión temporal con datos preconfigurados.</div>
+                    </li>
+                    <li>
+                        <div class="instruction-title">Explora el Sistema</div>
+                        <div class="instruction-desc">Accede a todas las funciones: PDV, facturación, inventario, dashboard y más.</div>
+                    </li>
+                    <li>
+                        <div class="instruction-title">Prueba con Datos Reales</div>
+                        <div class="instruction-desc">Tenemos 15 productos, 5 proveedores y historial de ventas configurados para que pruebes.</div>
+                    </li>
+                    <li>
+                        <div class="instruction-title">Convierte en Cliente</div>
+                        <div class="instruction-desc">Si te gusta, contáctanos para una demo personalizada y comienza tu prueba gratuita.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="demo-box">
+                <h2>Iniciar Demo</h2>
+                
+                <div class="demo-features">
+                    <h3>Todo lo que puedes probar:</h3>
+                    <div class="features-grid">
+                        <div class="feature-item">PDV Completo</div>
+                        <div class="feature-item">Facturación SIFEN</div>
+                        <div class="feature-item">Control de Inventario</div>
+                        <div class="feature-item">Dashboard en Tiempo Real</div>
+                        <div class="feature-item">Pagos con PIX</div>
+                        <div class="feature-item">Notas de Crédito</div>
+                        <div class="feature-item">Reportes Avanzados</div>
+                        <div class="feature-item">Multi-usuario</div>
+                    </div>
+                </div>
+
+                <div class="demo-limits">
+                    <h3>Límites de la Demo</h3>
+                    <ul class="limits-list">
+                        <li>1 hora de sesión activa</li>
+                        <li>10 transaciones máximas</li>
+                        <li>Datos se reinician automáticamente</li>
+                        <li>Ambiente de pruebas SIFEN</li>
+                    </ul>
+                </div>
+
+                <div class="demo-buttons">
+                    <button class="btn-demo-start" onclick="startDemo()">
+                        Iniciar Sesión Demo
+                    </button>
+                    
+                    <button class="btn-demo-secondary" onclick="contactSales()">
+                        Hablar con Ventas
+                    </button>
+                </div>
+
+                <div class="demo-status" id="demoStatus">
+                    <div class="status-loading" id="statusLoading">
+                        Creando tu sesión demo...
+                    </div>
+                    
+                    <div class="status-success" id="statusSuccess" style="display: none;">
+                        <h3>¡Sesión Demo Creada!</h3>
+                        <p>Usa estas credenciales para acceder al sistema:</p>
+                        
+                        <div class="credentials-box" id="credentialsBox">
+                            <!-- Credenciales se insertarán aquí -->
+                        </div>
+                        
+                        <button class="btn-login-demo" onclick="loginToDemo()">
+                            Acceder al Sistema Demo
+                        </button>
+                        
+                        <p style="margin-top: 15px; font-size: 14px; color: #718096;">
+                            ⚠️ Esta sesión expirará en 1 hora. Los datos se reiniciarán automáticamente.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-footer">
+            <h3>¿Listo para llevar tu negocio al siguiente nivel?</h3>
+            <p>La demo es solo el comienzo. NubePY ofrece planes flexibles para negocios de todos los tamaños, con soporte personalizado y configuración completa.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📞</span>
+                    <a href="https://wa.me/595984553751" target="_blank">+595 984 553751</a>
+                </div>
+                <div class="contact-item">
+                    <span>✉️</span>
+                    <a href="mailto:ventas@nubepy.com">ventas@nubepy.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>🌐</span>
+                    <a href="https://nubepy.com" target="_blank">nubepy.com</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let demoSession = null;
+        let demoCredentials = null;
+
+        async function startDemo() {
+            const btn = document.querySelector('.btn-demo-start');
+            const statusDiv = document.getElementById('demoStatus');
+            const loadingDiv = document.getElementById('statusLoading');
+            const successDiv = document.getElementById('statusSuccess');
+            const credentialsBox = document.getElementById('credentialsBox');
+            
+            btn.disabled = true;
+            btn.innerHTML = '<span class="status-loading"></span> Creando sesión...';
+            statusDiv.classList.add('active');
+            
+            try {
+                const response = await fetch('/demo/start', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        nome_usuario: 'Visitante Demo',
+                        email: 'demo@nubepy.com'
+                    })
+                });
+                
+                if (!response.ok) throw new Error(`Error ${response.status}`);
+                
+                const data = await response.json();
+                
+                if (data.sucesso) {
+                    demoSession = data;
+                    demoCredentials = data.dados_acesso;
+                    
+                    credentialsBox.innerHTML = `
+                        <div class="credential-item">
+                            <div class="credential-label">ID de Empresa</div>
+                            <div class="credential-value">
+                                <span id="empresaId">${demoCredentials.empresa_id}</span>
+                                <button class="copy-btn" onclick="copyToClipboard('empresaId')">Copiar</button>
+                            </div>
+                        </div>
+                        <div class="credential-item">
+                            <div class="credential-label">RUC Demo</div>
+                            <div class="credential-value">
+                                <span id="rucDemo">${demoCredentials.ruc}</span>
+                                <button class="copy-btn" onclick="copyToClipboard('rucDemo')">Copiar</button>
+                            </div>
+                        </div>
+                        <div class="credential-item">
+                            <div class="credential-label">Contraseña Admin</div>
+                            <div class="credential-value">
+                                <span id="senhaAdmin">${demoCredentials.senha_admin}</span>
+                                <button class="copy-btn" onclick="copyToClipboard('senhaAdmin')">Copiar</button>
+                            </div>
+                        </div>
+                        <div class="credential-item">
+                            <div class="credential-label">Contraseña Caja</div>
+                            <div class="credential-value">
+                                <span id="senhaCaixa">${demoCredentials.senha_caixa}</span>
+                                <button class="copy-btn" onclick="copyToClipboard('senhaCaixa')">Copiar</button>
+                            </div>
+                        </div>
+                        <div class="credential-item">
+                            <div class="credential-label">Sesión expira</div>
+                            <div class="credential-value">
+                                <span id="expiracao">${new Date(demoCredentials.sessao_expiracao).toLocaleTimeString('es-PY')}</span>
+                                <span style="color: #718096; font-size: 13px;">(hoy)</span>
+                            </div>
+                        </div>
+                    `;
+                    
+                    loadingDiv.style.display = 'none';
+                    successDiv.style.display = 'block';
+                    btn.innerHTML = '🎮 Sesión Activa';
+                    btn.style.background = 'linear-gradient(90deg, #10b981 0%, #059669 100%)';
+                    
+                    startSessionMonitoring();
+                    
+                } else {
+                    throw new Error(data.detail || 'Error creando sesión');
+                }
+                
+            } catch (error) {
+                console.error('Error:', error);
+                loadingDiv.innerHTML = `
+                    <div style="color: #dc2626; text-align: center;">
+                        <div style="font-size: 48px; margin-bottom: 10px;">❌</div>
+                        <h3 style="margin-bottom: 10px;">Error al crear sesión</h3>
+                        <p>${error.message}</p>
+                        <button onclick="startDemo()" style="
+                            background: #dc2626;
+                            color: white;
+                            border: none;
+                            padding: 10px 20px;
+                            border-radius: 8px;
+                            margin-top: 15px;
+                            cursor: pointer;
+                        ">Reintentar</button>
+                    </div>
+                `;
+                btn.disabled = false;
+                btn.innerHTML = 'Iniciar Sesión Demo';
+            }
+        }
+
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = element.textContent;
+                element.textContent = '¡Copiado!';
+                element.style.color = '#10b981';
+                setTimeout(() => {
+                    element.textContent = originalText;
+                    element.style.color = '';
+                }, 1500);
+            }).catch(err => console.error('Error al copiar:', err));
+        }
+
+        function loginToDemo() {
+            if (!demoCredentials) {
+                alert('Por favor, crea una sesión demo primero.');
+                return;
+            }
+            
+            // Redirigir al sistema principal
+            // En producción, esto haría login automático
+            window.location.href = '/?demo=true&empresa=' + demoCredentials.empresa_id;
+        }
+
+        function startSessionMonitoring() {
+            if (!demoCredentials) return;
+            
+            setInterval(async () => {
+                try {
+                    const response = await fetch('/demo/status', {
+                        method: 'GET',
+                        headers: {'X-Empresa-ID': demoCredentials.empresa_id.toString()}
+                    });
+                    
+                    if (response.ok) {
+                        const status = await response.json();
+                        if (status.minutos_restantes < 5) {
+                            showSessionWarning(status.minutos_restantes);
+                        }
+                        if (status.minutos_restantes <= 0) {
+                            sessionExpired();
+                        }
+                    }
+                } catch (error) {
+                    console.log('Error monitoreando sesión:', error);
+                }
+            }, 30000);
+        }
+
+        function showSessionWarning(minutesLeft) {
+            console.log(`Sesión demo expira en ${minutesLeft} minutos`);
+            if (minutesLeft === 5) {
+                alert(`⚠️ Tu sesión demo expira en 5 minutos. Guarda cualquier trabajo importante.`);
+            }
+        }
+
+        function sessionExpired() {
+            alert('Tu sesión demo ha expirado. Por favor, inicia una nueva sesión.');
+            location.reload();
+        }
+
+        function contactSales() {
+            window.open('https://wa.me/595984553751?text=Hola, me interesa NubePY después de probar la demo', '_blank');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('demo')) {
+                console.log('Modo demo activado desde URL');
+            }
+            
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.addEventListener('mousedown', () => {
+                    btn.style.transform = 'scale(0.98)';
+                });
+                btn.addEventListener('mouseup', () => {
+                    btn.style.transform = '';
+                });
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transform = '';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
