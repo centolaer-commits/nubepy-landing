@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos de Uso | NubePY</title>
+    <link rel="icon" type="image/svg+xml" href="logo_icon.svg">
+    <style>
+        html { scroll-behavior: smooth; }
+
+        body { 
+            margin: 0; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #f4f6f9; 
+            color: #333; 
+            padding-top: 130px; 
+        }
+        
+        /* Desktop Navbar */
+        .navbar-container {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #F8FAFC; 
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05); 
+            z-index: 1000;
+        }
+
+        .navbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 15px 50px; 
+        }
+
+        .navbar .logo img {
+            height: 100px; 
+            width: auto;
+            transition: 0.3s;
+        }
+
+        .nav-links { 
+            display: flex; 
+            gap: 20px; 
+            align-items: center; 
+        }
+        .nav-links a { 
+            color: #0b2239; 
+            font-weight: 600;
+            text-decoration: none; 
+            transition: 0.3s;
+            font-size: 15px;
+        }
+        .nav-links a:hover { color: #28b89b; }
+
+        .btn-demo {
+            border: 2px solid #28b89b;
+            background-color: #28b89b;
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 20px;
+            font-weight: bold !important;
+            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(40, 184, 155, 0.4);
+            transition: transform 0.2s, background-color 0.3s;
+        }
+        .btn-demo:hover {
+            background-color: #1f947c;
+            transform: scale(1.05);
+        }
+        
+        /* Hero Section */
+        .hero { 
+            background-color: #ffffff; 
+            color: #0b2239; 
+            padding: 50px 50px 100px 50px; 
+            overflow: hidden;
+            border-radius: 0 0 50px 50px; 
+        }
+        
+        .hero-content { 
+            display: flex; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            align-items: center; 
+            gap: 60px; 
+        }
+        .hero-text { flex: 1; }
+        .hero-text h1 { 
+            font-size: 48px; 
+            margin-bottom: 20px; 
+            line-height: 1.1; 
+            color: #0b2239;
+        }
+        .hero-text h1 span.nube { color: #28b89b; }
+        .hero-text h1 span.py { color: #0b2239; }
+
+        .hero-text p { 
+            font-size: 19px; 
+            color: #4a5568; 
+            margin-bottom: 40px; 
+            line-height: 1.6; 
+        }
+        .btn-main { 
+            background-color: #28b89b; 
+            color: white; 
+            padding: 18px 35px; 
+            text-decoration: none; 
+            border-radius: 35px; 
+            font-weight: bold; 
+            display: inline-block; 
+            transition: 0.3s;
+            box-shadow: 0 6px 12px rgba(40, 184, 155, 0.3);
+            font-size: 16px;
+        }
+        .btn-main:hover {
+            background-color: #1f947c;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Images */
+        .hero-image {
+            flex: 1.2;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            min-height: 500px;
+        }
+        .images-composition {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+        }
+        .system-back {
+            display: block;
+            width: 100%;
+            height: auto;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.08));
+        }
+        .man-front {
+            display: block;
+            width: 75%;
+            height: auto;
+            position: absolute;
+            right: -8%;
+            bottom: -25%;
+            z-index: 2;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.12));
+        }
+
+        /* Cards */
+        .cards-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 60px auto 0 auto;
+            gap: 30px;
+            padding: 0 50px;
+        }
+        .card {
+            flex: 1;
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+            transition: 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+        .card-icon {
+            font-size: 48px;
+            display: block;
+            margin-bottom: 20px;
+        }
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #0b2239;
+        }
+        .card p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        /* Info Sections */
+        .info-section {
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 0 50px;
+            text-align: center;
+        }
+        .info-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #0b2239;
+        }
+        .info-section p {
+            font-size: 18px;
+            color: #4a5568;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        .gray-bg {
+            background-color: #f8f9fa;
+            padding: 80px 20px;
+            border-radius: 30px;
+        }
+
+        /* Pricing */
+        .pricing-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 60px auto 0 auto;
+            gap: 30px;
+            padding: 0 20px;
+        }
+        .price-card {
+            flex: 1;
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+        .price-card.popular {
+            border: 2px solid #28b89b;
+            transform: scale(1.05);
+        }
+        .plan-name {
+            font-size: 22px;
+            font-weight: bold;
+            color: #0b2239;
+            margin-bottom: 20px;
+        }
+        .price {
+            font-size: 48px;
+            font-weight: bold;
+            color: #28b89b;
+            margin-bottom: 30px;
+        }
+        .price span {
+            font-size: 16px;
+            color: #4a5568;
+        }
+        .price-card ul { list-style: none; padding: 0; margin: 0 0 40px 0; flex-grow: 1; text-align: left; }
+        .price-card ul li { margin-bottom: 12px; display: flex; align-items: center; gap: 12px; font-size: 15px; color: #444; }
+
+        .footer { background-color: #f8f9fa; color: #0b2239; text-align: center; padding: 80px 20px; border-top: 1px solid #e2e8f0; margin-top: 60px; }
+        .footer-logo { height: 250px; width: auto; margin-bottom: 30px; }
+        .legal-footer { background-color: #0b2239; color: #fff; text-align: center; padding: 30px 20px; font-size: 14px; }
+        .legal-footer a { color: #28b89b; text-decoration: none; margin: 0 10px; }
+        .legal-footer a:hover { text-decoration: underline; }
+        .legal-footer .separator { color: #666; margin: 0 5px; }
+
+        /* Legal Container */
+        .legal-container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 50px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            line-height: 1.7;
+            color: #333;
+        }
+        .legal-container h1 {
+            color: #0b2239;
+            margin-bottom: 30px;
+            font-size: 36px;
+        }
+        .legal-container h2 {
+            color: #0b2239;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        .legal-container p {
+            margin-bottom: 20px;
+        }
+        .legal-container ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        /* --- MOBILE REVISION --- */
+        @media (max-width: 768px) {
+            body { padding-top: 0; } 
+
+            .navbar-container {
+                position: relative; 
+                box-shadow: none; 
+                border-bottom: 1px solid #e2e8f0; 
+            }
+
+            .navbar { padding: 20px; flex-direction: column; gap: 15px; align-items: center; }
+            .navbar .logo img { height: 65px !important; }
+            
+            /* Horizontal links below logo */
+            .nav-links { 
+                display: flex; 
+                flex-wrap: wrap; 
+                justify-content: center; 
+                gap: 15px; 
+                width: 100%; 
+            }
+            .nav-links a:not(.btn-demo) { 
+                font-size: 15px; 
+                width: auto; 
+                display: inline-block; 
+                padding: 5px; 
+            }
+            
+            /* Button below the horizontal links */
+            .btn-demo { 
+                border-width: 2px; 
+                border-color: #28b89b;
+                background-color: #28b89b;
+                color: white !important;
+                padding: 12px 20px; 
+                display: block; 
+                width: 90%; 
+                margin-top: 5px;
+                text-align: center;
+                box-sizing: border-box;
+                font-size: 18px;
+                box-shadow: 0 4px 12px rgba(40, 184, 155, 0.4);
+                transition: transform 0.2s, background-color 0.3s;
+            }
+            .btn-demo:hover {
+                background-color: #1f947c;
+                transform: scale(1.05);
+            }
+            
+            .hero { padding: 40px 20px 60px 20px; border-radius: 0 0 30px 30px; }
+            .hero-content { flex-direction: column; text-align: center; gap: 30px; }
+            .hero-text h1 { font-size: 34px; }
+            .hero-text p { font-size: 17px; margin-bottom: 30px; }
+            .btn-main { padding: 15px 30px; font-size: 15px; }
+
+            .hero-image { min-height: auto; margin-top: 30px; justify-content: center; }
+            .images-composition { max-width: 85%; margin-bottom: 30px; }
+            .man-front { bottom: -18%; right: -5%; }
+            
+            .cards-container { flex-direction: column; margin-top: 30px; gap: 15px; }
+            .price-card.popular { transform: scale(1); }
+            .footer-logo { height: 120px !important; }
+
+            .legal-container {
+                padding: 30px 20px;
+                margin: 30px auto;
+            }
+            .legal-container h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar-container">
+        <div class="navbar">
+            <div class="logo"><img src="logo_main.svg" alt="NubePY Logo"></div>
+            <div class="nav-links">
+                <a href="index.html#servicios">Servicios</a>
+                <a href="index.html#precios">Precios</a>
+                <a href="index.html#sifen">SIFEN</a>
+                <a href="https://app.nubepy.com/demo" target="_blank" class="btn-demo">👀 Ver Modelo de Ejemplo</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="legal-container">
+        <h1>Términos de Uso</h1>
+        <p>Este espacio está reservado para los términos y condiciones de uso del servicio NubePY.</p>
+        <p>El contenido legal será insertado aquí próximamente.</p>
+        <h2>1. Aceptación de los Términos</h2>
+        <p>Al acceder y utilizar el servicio, usted acepta estar sujeto a estos términos.</p>
+        <h2>2. Descripción del Servicio</h2>
+        <p>NubePY es un sistema de punto de venta y facturación electrónica en la nube, integrado con SIFEN (DNIT) de Paraguay.</p>
+        <h2>3. Responsabilidades del Usuario</h2>
+        <p>El usuario se compromete a utilizar el servicio de manera lícita y conforme a la normativa vigente.</p>
+        <h2>4. Propiedad Intelectual</h2>
+        <p>Todo el software, logotipos y documentación asociada son propiedad de NubePY.</p>
+        <h2>5. Limitación de Responsabilidad</h2>
+        <p>NubePY no se hace responsable por pérdidas indirectas o daños consecuentes derivados del uso del servicio.</p>
+        <h2>6. Modificaciones</h2>
+        <p>Nos reservamos el derecho de modificar estos términos en cualquier momento, notificando a los usuarios.</p>
+        <h2>7. Contacto</h2>
+        <p>Para cualquier consulta sobre estos términos, puede contactarnos en <a href="mailto:contacto@nubepy.com">contacto@nubepy.com</a>.</p>
+    </div>
+
+    <div class="footer">
+        <img src="logo_icon.svg" alt="NubePY Icon" class="footer-logo">
+        <h2>Más que facturas: el control total de tus ganancias.</h2>
+        <p>Asegura um 50% de descuento en tus primeros 3 meses inscibiéndote a nuestra Lista VIP por WhatsApp.</p>
+        <a href="https://wa.me/595984553751?text=Hola, quero mi descuento VIP" target="_blank" class="btn-main">Quiero mi descuento VIP💬</a>
+    </div>
+
+    <div class="legal-footer">
+        <p>
+            <a href="mailto:contacto@nubepy.com">contacto@nubepy.com</a><span class="separator">|</span>
+            <a href="https://wa.me/595984553751" target="_blank">WhatsApp</a><span class="separator">|</span>
+            <a href="terminos.html">Términos de Uso</a><span class="separator">|</span>
+            <a href="privacidad.html">Política de Privacidad</a>
+        </p>
+        <p>© 2025 NubePY. Todos los derechos reservados.</p>
+    </div>
+
+</body>
+</html>
