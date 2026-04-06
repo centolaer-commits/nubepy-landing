@@ -191,6 +191,49 @@
         .price-card ul { list-style: none; padding: 0; margin: 0 0 40px 0; flex-grow: 1; text-align: left; }
         .price-card ul li { margin-bottom: 12px; display: flex; align-items: center; gap: 12px; font-size: 15px; color: #444; }
 
+        /* Table Comparativa */
+        .table-container {
+            overflow-x: auto;
+            margin: 30px 0;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 16px;
+            min-width: 600px;
+        }
+        .comparison-table thead {
+            background-color: #f1f5f9;
+        }
+        .comparison-table th {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #e2e8f0;
+            font-weight: bold;
+            color: #0b2239;
+        }
+        .comparison-table th.plan-header {
+            text-align: center;
+        }
+        .comparison-table tbody tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        .comparison-table tbody tr:nth-child(odd) {
+            background-color: white;
+        }
+        .comparison-table td {
+            padding: 15px;
+            border: 1px solid #e2e8f0;
+            color: #555;
+        }
+        .comparison-table td.feature {
+            font-weight: 600;
+            color: #333;
+        }
+        .comparison-table td.plan-cell {
+            text-align: center;
+        }
+
         .footer { background-color: #f8f9fa; color: #0b2239; text-align: center; padding: 80px 20px; border-top: 1px solid #e2e8f0; margin-top: 60px; }
         .footer-logo { height: 250px; width: auto; margin-bottom: 30px; }
         .legal-footer { background-color: #0b2239; color: #fff; text-align: center; padding: 30px 20px; font-size: 14px; }
@@ -262,6 +305,16 @@
             .cards-container { flex-direction: column; margin-top: 30px; gap: 15px; }
             .price-card.popular { transform: scale(1); }
             .footer-logo { height: 120px !important; }
+
+            /* Comparison table mobile */
+            .comparison-table {
+                font-size: 14px;
+                min-width: 500px;
+            }
+            .comparison-table th,
+            .comparison-table td {
+                padding: 12px;
+            }
         }
     </style>
 </head>
@@ -321,22 +374,70 @@
         <div class="pricing-container">
             <div class="price-card" data-aos="flip-left">
                 <p class="plan-name">Plan Inicial</p>
-                <div class="price">120.000 <span>PYG/mes</span></div>
-                <ul><li>✔️ Punto de Venta (Efectivo, Tarjeta, Transferencia)</li><li>✔️ Facturación Electrónica SIFEN (Emisión, XML/KuDE)</li><li>✔️ Autofactura</li><li>✔️ Nota de Remisión</li><li>✔️ Dashboard Básico</li><li>✔️ Inventario (Productos, Categorías)</li><li>✔️ Soporte Estándar</li></ul>
+                <div class="price">140.000 <span>PYG/mes</span></div>
+                <ul><li>✔️ 1 Usuario (Dueño)</li><li>✔️ Hasta 300 productos</li><li>✔️ PDV Básico</li><li>✔️ 100% Legal SIFEN</li></ul>
                 <a href="https://wa.me/595984553751?text=Hola, Plan Inicial" target="_blank" class="btn-main btn-price">Elegir Inicial</a>
             </div>
             <div class="price-card popular" data-aos="flip-left">
                 <p class="plan-name">Plan Crecimiento</p>
-                <div class="price">250.000 <span>PYG/mes</span></div>
-                <ul><li>✔️ Todo del Inicial</li><li>✔️ Inventario</li><li>✔️ Dashboard</li><li>✔️ Soporte por WhatsApp</li></ul>
+                <div class="price">320.000 <span>PYG/mes</span></div>
+                <ul><li>✔️ Hasta 3 Usuarios</li><li>✔️ Productos Ilimitados</li><li>✔️ PDV con PIX</li><li>✔️ Inventario Avanzado (Auditoría)</li></ul>
                 <a href="https://wa.me/595984553751?text=Hola, Plan Crecimiento" target="_blank" class="btn-main btn-price">Elegir Crecimiento</a>
             </div>
             <div class="price-card" data-aos="flip-left">
                 <p class="plan-name">Plan VIP</p>
-                <div class="price">450.000 <span>PYG/mes</span></div>
-                <ul><li>✔️ Todo do Crecimiento</li><li>✔️ Usuarios Ilimitados</li><li>✔️ Reportes Avanzados</li><li>✔️ Soporte Prioritario</li></ul>
+                <div class="price">420.000 <span>PYG/mes</span></div>
+                <ul><li>✔️ Usuarios Ilimitados</li><li>✔️ Perfiles de Gerente</li><li>✔️ Todo del Crecimiento</li><li>✔️ Soporte VIP 24/7</li></ul>
                 <a href="https://wa.me/595984553751?text=Hola, Plan VIP" target="_blank" class="btn-main btn-price">Elegir VIP</a>
             </div>
+        </div>
+    </div>
+
+    <div class="info-section" data-aos="fade-up">
+        <h2>Compara las funciones</h2>
+        <div class="table-container">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th class="plan-header">Plan Inicial</th>
+                        <th class="plan-header">Plan Crecimiento</th>
+                        <th class="plan-header">Plan VIP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature">Límite de Usuarios</td>
+                        <td class="plan-cell">1</td>
+                        <td class="plan-cell">3</td>
+                        <td class="plan-cell">Ilimitado</td>
+                    </tr>
+                    <tr>
+                        <td class="feature">Límite de Productos</td>
+                        <td class="plan-cell">300</td>
+                        <td class="plan-cell">Ilimitado</td>
+                        <td class="plan-cell">Ilimitado</td>
+                    </tr>
+                    <tr>
+                        <td class="feature">Facturación Electrónica SIFEN</td>
+                        <td class="plan-cell">Sí</td>
+                        <td class="plan-cell">Sí</td>
+                        <td class="plan-cell">Sí</td>
+                    </tr>
+                    <tr>
+                        <td class="feature">Pagos Rápidos con PIX</td>
+                        <td class="plan-cell">No</td>
+                        <td class="plan-cell">Sí</td>
+                        <td class="plan-cell">Sí</td>
+                    </tr>
+                    <tr>
+                        <td class="feature">Gestión de Equipo y Gerentes</td>
+                        <td class="plan-cell">No</td>
+                        <td class="plan-cell">No</td>
+                        <td class="plan-cell">Sí</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
