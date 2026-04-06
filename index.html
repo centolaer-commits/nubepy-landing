@@ -6,6 +6,7 @@
     <title>NubePY | SIFEN - Facturación Electrónica Paraguay</title>
     <link rel="icon" type="image/svg+xml" href="logo_icon.svg">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         html { scroll-behavior: smooth; }
 
@@ -191,47 +192,10 @@
         .price-card ul { list-style: none; padding: 0; margin: 0 0 40px 0; flex-grow: 1; text-align: left; }
         .price-card ul li { margin-bottom: 12px; display: flex; align-items: center; gap: 12px; font-size: 15px; color: #444; }
 
-        /* Table Comparativa */
+        /* Table Comparativa - Estilos substituídos por Tailwind */
         .table-container {
             overflow-x: auto;
             margin: 30px 0;
-        }
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 16px;
-            min-width: 600px;
-        }
-        .comparison-table thead {
-            background-color: #f1f5f9;
-        }
-        .comparison-table th {
-            padding: 15px;
-            text-align: left;
-            border: 1px solid #e2e8f0;
-            font-weight: bold;
-            color: #0b2239;
-        }
-        .comparison-table th.plan-header {
-            text-align: center;
-        }
-        .comparison-table tbody tr:nth-child(even) {
-            background-color: #f8fafc;
-        }
-        .comparison-table tbody tr:nth-child(odd) {
-            background-color: white;
-        }
-        .comparison-table td {
-            padding: 15px;
-            border: 1px solid #e2e8f0;
-            color: #555;
-        }
-        .comparison-table td.feature {
-            font-weight: 600;
-            color: #333;
-        }
-        .comparison-table td.plan-cell {
-            text-align: center;
         }
 
         .footer { background-color: #f8f9fa; color: #0b2239; text-align: center; padding: 80px 20px; border-top: 1px solid #e2e8f0; margin-top: 60px; }
@@ -306,15 +270,7 @@
             .price-card.popular { transform: scale(1); }
             .footer-logo { height: 120px !important; }
 
-            /* Comparison table mobile */
-            .comparison-table {
-                font-size: 14px;
-                min-width: 500px;
-            }
-            .comparison-table th,
-            .comparison-table td {
-                padding: 12px;
-            }
+            /* Comparison table mobile - Estilos substituídos por Tailwind */
         }
     </style>
 </head>
@@ -395,46 +351,46 @@
 
     <div class="info-section" data-aos="fade-up">
         <h2>Compara las funciones</h2>
-        <div class="table-container">
-            <table class="comparison-table">
+        <div class="table-container overflow-hidden rounded-2xl shadow-xl border border-gray-100">
+            <table class="w-full">
                 <thead>
-                    <tr>
-                        <th>Característica</th>
-                        <th class="plan-header">Plan Inicial</th>
-                        <th class="plan-header">Plan Crecimiento</th>
-                        <th class="plan-header">Plan VIP</th>
+                    <tr class="bg-teal-600 text-white">
+                        <th class="py-4 px-6 text-left font-bold">Característica</th>
+                        <th class="py-4 px-6 text-center font-bold">Plan Inicial</th>
+                        <th class="py-4 px-6 text-center font-bold">Plan Crecimiento</th>
+                        <th class="py-4 px-6 text-center font-bold">Plan VIP</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="feature">Límite de Usuarios</td>
-                        <td class="plan-cell">1</td>
-                        <td class="plan-cell">3</td>
-                        <td class="plan-cell">Ilimitado</td>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-4 px-6 font-semibold text-gray-800">Límite de Usuarios</td>
+                        <td class="py-4 px-6 text-center">1</td>
+                        <td class="py-4 px-6 text-center bg-teal-50">3</td>
+                        <td class="py-4 px-6 text-center">Ilimitado</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-4 px-6 font-semibold text-gray-800">Límite de Productos</td>
+                        <td class="py-4 px-6 text-center">300</td>
+                        <td class="py-4 px-6 text-center bg-teal-50">Ilimitado</td>
+                        <td class="py-4 px-6 text-center">Ilimitado</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-4 px-6 font-semibold text-gray-800">Facturación Electrónica SIFEN</td>
+                        <td class="py-4 px-6 text-center">✅</td>
+                        <td class="py-4 px-6 text-center bg-teal-50">✅</td>
+                        <td class="py-4 px-6 text-center">✅</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-4 px-6 font-semibold text-gray-800">Pagos Rápidos con PIX</td>
+                        <td class="py-4 px-6 text-center">➖</td>
+                        <td class="py-4 px-6 text-center bg-teal-50">✅</td>
+                        <td class="py-4 px-6 text-center">✅</td>
                     </tr>
                     <tr>
-                        <td class="feature">Límite de Productos</td>
-                        <td class="plan-cell">300</td>
-                        <td class="plan-cell">Ilimitado</td>
-                        <td class="plan-cell">Ilimitado</td>
-                    </tr>
-                    <tr>
-                        <td class="feature">Facturación Electrónica SIFEN</td>
-                        <td class="plan-cell">Sí</td>
-                        <td class="plan-cell">Sí</td>
-                        <td class="plan-cell">Sí</td>
-                    </tr>
-                    <tr>
-                        <td class="feature">Pagos Rápidos con PIX</td>
-                        <td class="plan-cell">No</td>
-                        <td class="plan-cell">Sí</td>
-                        <td class="plan-cell">Sí</td>
-                    </tr>
-                    <tr>
-                        <td class="feature">Gestión de Equipo y Gerentes</td>
-                        <td class="plan-cell">No</td>
-                        <td class="plan-cell">No</td>
-                        <td class="plan-cell">Sí</td>
+                        <td class="py-4 px-6 font-semibold text-gray-800">Gestión de Equipo y Gerentes</td>
+                        <td class="py-4 px-6 text-center">➖</td>
+                        <td class="py-4 px-6 text-center bg-teal-50">➖</td>
+                        <td class="py-4 px-6 text-center">✅</td>
                     </tr>
                 </tbody>
             </table>
