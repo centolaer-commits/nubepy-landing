@@ -270,7 +270,18 @@
             .price-card.popular { transform: scale(1); }
             .footer-logo { height: 120px !important; }
 
-            /* Comparison table mobile - Estilos substituídos por Tailwind */
+            /* Pricing cards mobile */
+            .pricing-container { gap: 15px; }
+            .price-card { min-width: 0; padding: 25px 20px; }
+            .price-card .price { font-size: 28px; }
+            .price-card .plan-name { font-size: 20px; }
+
+            /* Table mobile */
+            .table-container table { font-size: 13px; }
+            .table-container th, .table-container td { padding: 10px 8px !important; }
+
+            /* Category titles mobile */
+            .info-section h3.text-2xl { font-size: 18px; }
         }
     </style>
 </head>
@@ -327,24 +338,62 @@
         <h2>Planes Transparentes y Simples</h2>
         <p>Elige el plan que mejor se adapte al tamaño de tu negocio.</p>
         
-        <div class="pricing-container">
-            <div class="price-card" data-aos="flip-left">
-                <p class="plan-name">Plan Inicial</p>
-                <div class="price">140.000 <span>PYG/mes</span></div>
-                <ul><li>✔️ 1 Usuario (Dueño)</li><li>✔️ Hasta 300 productos</li><li>✔️ PDV Básico</li><li>✔️ 100% Legal SIFEN</li></ul>
-                <a href="https://wa.me/595984553751?text=Hola, Plan Inicial" target="_blank" class="btn-main btn-price">Elegir Inicial</a>
+        <!-- CATEGORÍA: GESTIÓN INTERNA -->
+        <div class="mb-16">
+            <h3 class="text-2xl font-bold text-gray-800 mb-2 mt-0">📋 Gestión Interna</h3>
+            <p class="text-gray-500 mb-8">Perfecto para negocios que aún no necesitan facturación electrónica SIFEN. Emití comprobantes internos sin validez fiscal.</p>
+            <div class="pricing-container">
+                <div class="price-card" data-aos="flip-left">
+                    <p class="plan-name">Lite</p>
+                    <div class="price">90.000 <span>Gs/mes</span></div>
+                    <ul>
+                        <li>✔️ 1 Usuario (Cajero)</li>
+                        <li>✔️ PDV Completo</li>
+                        <li>✔️ Control de Estoque</li>
+                        <li>✔️ Comprobante Interno</li>
+                        <li class="text-red-500">❌ Sin facturación SIFEN</li>
+                    </ul>
+                    <a href="https://wa.me/595984553751?text=Hola, Plan Lite" target="_blank" class="btn-main btn-price">Elegir Lite</a>
+                </div>
+                <div class="price-card popular" data-aos="flip-left" style="border-color: #f59e0b;">
+                    <p class="plan-name">Lite Premium</p>
+                    <div class="price">180.000 <span>Gs/mes</span></div>
+                    <ul>
+                        <li>✔️ Multi-usuarios (Cajero + Gerente)</li>
+                        <li>✔️ PDV Completo</li>
+                        <li>✔️ Control de Estoque</li>
+                        <li>✔️ Relatórios Avanzados</li>
+                        <li>✔️ Comprobante Interno</li>
+                        <li class="text-red-500">❌ Sin facturación SIFEN</li>
+                    </ul>
+                    <a href="https://wa.me/595984553751?text=Hola, Plan Lite Premium" target="_blank" class="btn-main btn-price">Elegir Lite Premium</a>
+                </div>
             </div>
-            <div class="price-card popular" data-aos="flip-left">
-                <p class="plan-name">Plan Crecimiento</p>
-                <div class="price">320.000 <span>PYG/mes</span></div>
-                <ul><li>✔️ 2 Usuarios (Dueño + 1 Cajero)</li><li>✔️ Productos Ilimitados</li><li>✔️ PDV con PIX</li><li>✔️ Inventario Avanzado (Auditoría)</li></ul>
-                <a href="https://wa.me/595984553751?text=Hola, Plan Crecimiento" target="_blank" class="btn-main btn-price">Elegir Crecimiento</a>
-            </div>
-            <div class="price-card" data-aos="flip-left">
-                <p class="plan-name">Plan VIP</p>
-                <div class="price">420.000 <span>PYG/mes</span></div>
-                <ul><li>✔️ Cajeros y Gerentes Ilimitados</li><li>✔️ Perfiles de Gerente</li><li>✔️ Todo del Crecimiento</li><li>✔️ Soporte VIP 24/7</li></ul>
-                <a href="https://wa.me/595984553751?text=Hola, Plan VIP" target="_blank" class="btn-main btn-price">Elegir VIP</a>
+        </div>
+
+        <!-- CATEGORÍA: FACTURACIÓN SIFEN -->
+        <div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2 mt-0">📄 Facturación SIFEN</h3>
+            <p class="text-gray-500 mb-8">Para negocios que necesitan emitir facturas electrónicas legalmente válidas ante la DNIT.</p>
+            <div class="pricing-container">
+                <div class="price-card" data-aos="flip-left">
+                    <p class="plan-name">Plan Inicial</p>
+                    <div class="price">140.000 <span>Gs/mes</span></div>
+                    <ul><li>✔️ 1 Usuario (Dueño)</li><li>✔️ Hasta 300 productos</li><li>✔️ PDV Básico</li><li>✔️ 100% Legal SIFEN</li></ul>
+                    <a href="https://wa.me/595984553751?text=Hola, Plan Inicial" target="_blank" class="btn-main btn-price">Elegir Inicial</a>
+                </div>
+                <div class="price-card popular" data-aos="flip-left">
+                    <p class="plan-name">Plan Crecimiento</p>
+                    <div class="price">320.000 <span>Gs/mes</span></div>
+                    <ul><li>✔️ 2 Usuarios (Dueño + 1 Cajero)</li><li>✔️ Productos Ilimitados</li><li>✔️ PDV con PIX</li><li>✔️ Inventario Avanzado (Auditoría)</li></ul>
+                    <a href="https://wa.me/595984553751?text=Hola, Plan Crecimiento" target="_blank" class="btn-main btn-price">Elegir Crecimiento</a>
+                </div>
+                <div class="price-card" data-aos="flip-left">
+                    <p class="plan-name">Plan VIP</p>
+                    <div class="price">420.000 <span>Gs/mes</span></div>
+                    <ul><li>✔️ Cajeros y Gerentes Ilimitados</li><li>✔️ Perfiles de Gerente</li><li>✔️ Todo del Crecimiento</li><li>✔️ Soporte VIP 24/7</li></ul>
+                    <a href="https://wa.me/595984553751?text=Hola, Plan VIP" target="_blank" class="btn-main btn-price">Elegir VIP</a>
+                </div>
             </div>
         </div>
     </div>
@@ -357,6 +406,8 @@
                 <thead>
                     <tr class="bg-teal-600 text-white">
                         <th class="py-4 px-6 text-left font-bold">Característica</th>
+                        <th class="py-4 px-6 text-center font-bold bg-amber-500">Lite</th>
+                        <th class="py-4 px-6 text-center font-bold bg-amber-500">Lite Premium</th>
                         <th class="py-4 px-6 text-center font-bold">Plan Inicial</th>
                         <th class="py-4 px-6 text-center font-bold">Plan Crecimiento</th>
                         <th class="py-4 px-6 text-center font-bold">Plan VIP</th>
@@ -364,34 +415,76 @@
                 </thead>
                 <tbody>
                     <tr class="border-b border-gray-100">
+                        <td class="py-4 px-6 font-semibold text-gray-800">Categoría</td>
+                        <td class="py-4 px-6 text-center text-xs font-bold bg-amber-50/50">📋 Gestión Interna</td>
+                        <td class="py-4 px-6 text-center text-xs font-bold bg-amber-50/50">📋 Gestión Interna</td>
+                        <td class="py-4 px-6 text-center text-xs font-bold bg-teal-50">📄 SIFEN</td>
+                        <td class="py-4 px-6 text-center text-xs font-bold bg-teal-50">📄 SIFEN</td>
+                        <td class="py-4 px-6 text-center text-xs font-bold bg-teal-50">📄 SIFEN</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-4 px-6 font-semibold text-gray-800">Precio</td>
+                        <td class="py-4 px-6 text-center font-bold bg-amber-50/50">90.000 Gs/mes</td>
+                        <td class="py-4 px-6 text-center font-bold bg-amber-50/50">180.000 Gs/mes</td>
+                        <td class="py-4 px-6 text-center font-bold">140.000 Gs/mes</td>
+                        <td class="py-4 px-6 text-center font-bold bg-teal-50">320.000 Gs/mes</td>
+                        <td class="py-4 px-6 text-center font-bold">420.000 Gs/mes</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
                         <td class="py-4 px-6 font-semibold text-gray-800">Límite de Usuarios</td>
-                        <td class="py-4 px-6 text-center">1</td>
-                        <td class="py-4 px-6 text-center bg-teal-50">2</td>
-                        <td class="py-4 px-6 text-center">Ilimitado</td>
+                        <td class="py-4 px-6 text-center bg-amber-50/50">1 Cajero</td>
+                        <td class="py-4 px-6 text-center bg-amber-50/50">Cajero + Gerente</td>
+                        <td class="py-4 px-6 text-center">1 (Dueño)</td>
+                        <td class="py-4 px-6 text-center bg-teal-50">2 (Dueño + 1 Cajero)</td>
+                        <td class="py-4 px-6 text-center">Cajeros y Gerentes Ilimitados</td>
                     </tr>
                     <tr class="border-b border-gray-100">
                         <td class="py-4 px-6 font-semibold text-gray-800">Límite de Productos</td>
+                        <td class="py-4 px-6 text-center bg-amber-50/50">Ilimitado</td>
+                        <td class="py-4 px-6 text-center bg-amber-50/50">Ilimitado</td>
                         <td class="py-4 px-6 text-center">300</td>
                         <td class="py-4 px-6 text-center bg-teal-50">Ilimitado</td>
                         <td class="py-4 px-6 text-center">Ilimitado</td>
                     </tr>
                     <tr class="border-b border-gray-100">
                         <td class="py-4 px-6 font-semibold text-gray-800">Facturación Electrónica SIFEN</td>
+                        <td class="py-4 px-6 text-center bg-amber-50/50">❌</td>
+                        <td class="py-4 px-6 text-center bg-amber-50/50">❌</td>
                         <td class="py-4 px-6 text-center">✅</td>
                         <td class="py-4 px-6 text-center bg-teal-50">✅</td>
                         <td class="py-4 px-6 text-center">✅</td>
                     </tr>
                     <tr class="border-b border-gray-100">
+                        <td class="py-4 px-6 font-semibold text-gray-800">Comprobante Interno</td>
+                        <td class="py-4 px-6 text-center bg-amber-50/50">✅</td>
+                        <td class="py-4 px-6 text-center bg-amber-50/50">✅</td>
+                        <td class="py-4 px-6 text-center">➖</td>
+                        <td class="py-4 px-6 text-center bg-teal-50">➖</td>
+                        <td class="py-4 px-6 text-center">➖</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
                         <td class="py-4 px-6 font-semibold text-gray-800">Pagos Rápidos con PIX</td>
+                        <td class="py-4 px-6 text-center bg-amber-50/50">✅</td>
+                        <td class="py-4 px-6 text-center bg-amber-50/50">✅</td>
+                        <td class="py-4 px-6 text-center">➖</td>
+                        <td class="py-4 px-6 text-center bg-teal-50">✅</td>
+                        <td class="py-4 px-6 text-center">✅</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-4 px-6 font-semibold text-gray-800">Control de Estoque</td>
+                        <td class="py-4 px-6 text-center bg-amber-50/50">✅</td>
+                        <td class="py-4 px-6 text-center bg-amber-50/50">✅</td>
                         <td class="py-4 px-6 text-center">➖</td>
                         <td class="py-4 px-6 text-center bg-teal-50">✅</td>
                         <td class="py-4 px-6 text-center">✅</td>
                     </tr>
                     <tr>
-                        <td class="py-4 px-6 font-semibold text-gray-800">Gestión de Equipo</td>
+                        <td class="py-4 px-6 font-semibold text-gray-800">Relatórios Avanzados</td>
+                        <td class="py-4 px-6 text-center bg-amber-50/50">➖</td>
+                        <td class="py-4 px-6 text-center bg-amber-50/50">✅</td>
                         <td class="py-4 px-6 text-center">➖</td>
-                        <td class="py-4 px-6 text-center bg-teal-50">Solo 1 Cajero</td>
-                        <td class="py-4 px-6 text-center">Cajeros y Gerentes Ilimitados</td>
+                        <td class="py-4 px-6 text-center bg-teal-50">➖</td>
+                        <td class="py-4 px-6 text-center">✅</td>
                     </tr>
                 </tbody>
             </table>
